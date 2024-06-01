@@ -7,12 +7,14 @@ Go into the off-chain folder
 cd off-chain
 ```
 
+
 Install dependencies
 ```
 npm i
 ```
 
-Run the tests 
+
+Run the tests. Make sure you are running Node Version 19 and above
 ```
 npm run test
 ```
@@ -32,8 +34,7 @@ must_be_signed_by_owner
 ```
 
 ### Off-chain
-
-Create function that gets all available UTxOs locked up in the contract by the owner.
+Create a function that gets all available UTxOs locked up in the contract by the owner.
 
 ```
 export async function getOwnerUTxOsAtScript(
@@ -59,4 +60,5 @@ export async function getOwnerUTxOsAtScript(
 }
 ```
 
-The function to consume the transaction will take in two parameters. One of the UTxOs to consumer and the other owner publick key hash. The function needs to make sure it has add the signerKey to the transaction.
+
+The function to consume the transaction will take in two parameters. One of the UTxOs that can be consumed and the other owner public key hash. The function needs to make sure it has added the owner's signature to the transaction.
