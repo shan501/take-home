@@ -17,8 +17,8 @@ type Redeemer {
 validator {
   fn consume(datum: Datum, _redeemer: Redeemer, ctx: ScriptContext) -> Bool {
     // To consume the UTxO, the transaction must be signed by the owner
-    let must_be_signed_by_lender =
+    let must_be_signed_by_owner =
       list.has(ctx.transaction.extra_signatories, datum.owner_address_hash)
-    must_be_signed_by_lender
+    must_be_signed_by_owner
   }
 }
