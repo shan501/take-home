@@ -38,9 +38,9 @@ describe("All Flows Work", () => {
     users,
     emulator,
   }) => {
-    lucid.selectWalletFromSeed(users.account1.seedPhrase);
-
     const { validatorAddress } = getValidators(lucid);
+
+    lucid.selectWalletFromSeed(users.account1.seedPhrase);
 
     const ownerPubKeyHash = lucid.utils.getAddressDetails(
       await lucid.wallet.address()
@@ -49,7 +49,6 @@ describe("All Flows Work", () => {
     const ownerConsumerDatum: OwnerConsumeDatum = {
       ownerPubKeyHash: ownerPubKeyHash as string,
     };
-
     const datum = Data.to(ownerConsumerDatum, OwnerConsumeDatum);
 
     const lockUTxOTx = await lucid
@@ -64,7 +63,6 @@ describe("All Flows Work", () => {
       .complete();
 
     const signedTx = await lockUTxOTx.sign().complete();
-
     await signedTx.submit();
 
     emulator.awaitBlock(100);
@@ -80,11 +78,9 @@ describe("All Flows Work", () => {
     };
 
     const consumeTx = await ownerConsumeTx(lucid, ownerConsumeTxConfig);
-
     expect(consumeTx.type).toBe("success");
 
     const ownerConsumeCBOR = consumeTx.tx?.toString();
-
     const ownerConsumeSigned = await lucid
       .fromTx(ownerConsumeCBOR as string)
       .sign()
@@ -98,10 +94,9 @@ describe("All Flows Work", () => {
     users,
     emulator,
   }) => {
-    lucid.selectWalletFromSeed(users.account1.seedPhrase);
-
     const { validatorAddress } = getValidators(lucid);
 
+    lucid.selectWalletFromSeed(users.account1.seedPhrase);
     const ownerPubKeyHash = lucid.utils.getAddressDetails(
       await lucid.wallet.address()
     ).paymentCredential?.hash;
@@ -109,7 +104,6 @@ describe("All Flows Work", () => {
     const ownerConsumerDatum: OwnerConsumeDatum = {
       ownerPubKeyHash: ownerPubKeyHash as string,
     };
-
     const datum = Data.to(ownerConsumerDatum, OwnerConsumeDatum);
 
     const lockUTxOTx = await lucid
@@ -124,7 +118,6 @@ describe("All Flows Work", () => {
       .complete();
 
     const signedTx = await lockUTxOTx.sign().complete();
-
     await signedTx.submit();
 
     emulator.awaitBlock(100);
@@ -135,7 +128,6 @@ describe("All Flows Work", () => {
     );
 
     lucid.selectWalletFromSeed(users.account2.seedPhrase);
-
     const notOwnerPubKeyHash = lucid.utils.getAddressDetails(
       await lucid.wallet.address()
     ).paymentCredential?.hash;
@@ -146,7 +138,6 @@ describe("All Flows Work", () => {
     };
 
     const consumeTx = await ownerConsumeTx(lucid, ownerConsumeTxConfig);
-
     expect(consumeTx.type).toBe("error");
   });
 });

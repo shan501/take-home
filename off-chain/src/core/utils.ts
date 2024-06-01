@@ -1,10 +1,8 @@
 import {
   Assets,
   Data,
-  Emulator,
   Lucid,
   SpendingValidator,
-  Tx,
   generateSeedPhrase,
 } from "lucid-cardano";
 import { validatorCBOR } from "./constants.js";
