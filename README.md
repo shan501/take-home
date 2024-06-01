@@ -1,5 +1,22 @@
 # Documentation
 
+
+## How To Run
+Go into the off-chain folder
+```
+cd off-chain
+```
+
+Install dependencies
+```
+npm i
+```
+
+Run the tests 
+```
+npm run test
+```
+
 ### Overview
 
 To ensure that only the owner of the UTxO can consume it we need to check if the transaction is signed by the owner. We will store it in the datum of the UTxO and the smart contract simply needs to check that the signature is in the transaction to approve it.
