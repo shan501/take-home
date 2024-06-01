@@ -1,0 +1,8 @@
+# Aiken compilation artifacts
+validators/artifacts/
+# Aiken's project working directory
+validators/build/
+# Aiken's default documentation export
+validators/docs/
+
+off-chain/node_modules

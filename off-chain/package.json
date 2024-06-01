@@ -1,0 +1,29 @@
+{
+  "name": "offchain",
+  "version": "0.1.0",
+  "private": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "lucid-cardano": "^0.10.7",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@typescript-eslint/eslint-plugin": "^7.10.0",
+    "@typescript-eslint/parser": "^7.10.0",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.4",
+    "vitest": "^0.34.6"
+  }
+}
