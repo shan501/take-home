@@ -11,6 +11,8 @@ export async function ownerConsumeTx(
     const consumerRedeemer = Data.to(new Constr(0, [1n]));
 
     const tx = lucid.newTx();
+
+    // Add signature
     const completedTx = await tx
       .collectFrom(ownerConsumeTxConfig.UTxOs, consumerRedeemer)
       .attachSpendingValidator(validator)
